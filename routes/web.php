@@ -14,3 +14,28 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('recipes', [
+    'as' => 'recipes.show', 'uses' => 'RecipeController@getRecipes'
+]);
+
+$router->get('/recipe/{id}', [
+    'as' => 'recipe.show', 'uses' => 'RecipeController@getRecipe'
+]);
+
+$router->get('/recipes/{cuisine}', [
+    'as' => 'recipes.cuisine.show', 'uses' => 'RecipeController@getRecipesByCuisine'
+]);
+
+$router->post('/recipe', [
+    'as' => 'recipe.create', 'uses' => 'RecipeController@createRecipe'
+]);
+
+$router->put('/recipe/{id}', [
+    'as' => 'recipe.update', 'uses' => 'RecipeController@updateRecipe'
+]);
+
+$router->post('/recipe/rating/{id}', [
+    'as' => 'recipe.rate', 'uses' => 'RecipeController@rateRecipe'
+]);
+
