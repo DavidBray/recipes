@@ -1,21 +1,44 @@
-# Lumen PHP Framework
+# Recipes Project 
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+Framework:  Lumen (PHP 7.1.3 required).
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+Reasons for using Lumen:
+* Light + fast PHP framework ideal for APIs.
+* Mobile apps + web interfaces will consume identical APIs.
 
-## Official Documentation
+The project just requires cloning + composer install. No .env file changes are required. The Postman routes are listed below.
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+The project has been created using the following components:
 
-## Security Vulnerabilities
+* RecipeController.php
+* RecipeDataInterface.php
+* RecipeRepository.php
+* RecipeDataServiceProvider.php - to bind the RecipeDataInterface to the RecipeRepository (csv file)
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Routes (using a local domain - please change accordingly):
 
-## License
+GET
+http://recipes.test/recipes
+Get all recipes
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+GET
+http://recipes.test/recipe/{id}
+Get a particular recipe
+
+GET
+http://recipes.test/recipes/{cuisine}
+Get all recipes for a cuisine
+
+*POST
+http://recipes.test/recipe
+Create a new recipe
+
+*POST
+http://recipes.test/recipe/rating/{rating}
+Create a recipe rating in ratings table
+
+*PUT
+http://recipes.test/recipe/{id}
+Update a recipe
+
+* Please note: Creating/Updating and rating a new recipe was only stub implemented due to the project specifing a database should not be used. The routes have been implemented however with test data returned.
